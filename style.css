@@ -1,0 +1,289 @@
+* {
+  font-family: 'Space Grotesk', sans-serif;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+}
+
+/*hide the thank you message*/
+.hidden {
+  display: none !important;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+}
+
+/* starting of the left sect */
+.left-section {
+  min-height: 100vh;
+  width: 50%;
+  background-image: url('images/bg-main-desktop.png');
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.cards {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  left: 100%;
+  transform: translate(-50%,-50%); /* this basically center one */
+}
+
+/* front card and back card in this project requires a position attr */
+.front-card {
+  position: relative;
+  transform: translateX(-25%);
+}
+
+.card-logo {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+}
+
+#number {
+  position: absolute;
+  color: hsl(0, 0%, 100%); /*white*/
+  bottom: 5rem;
+  left: 1rem;
+  letter-spacing: 2px;
+}
+
+.card-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 1rem;
+  right: 3rem;
+  display: flex;
+  color: hsl(0, 0%, 100%); /*white*/
+  justify-content: space-between;
+}
+
+/* front card and back card in this project requires a position attr */
+.back-card {
+  position: relative;
+}
+
+.error {
+  border: 2px solid hsl(0, 100%, 66); /*red*/
+}
+
+.error-message {
+  gap: 0;
+}
+
+/* mess for empty input */
+.error-message::after {
+  content: "Can't be blank";
+  color: red; /*red*/
+  margin-top: .2rem;
+}
+
+#cvc {
+  position: absolute;
+  right: 3.5rem;
+  top: 7rem;
+  color: hsl(270, 3%, 87%) /*Light-grayish-violet*/;
+}
+
+/* right section/form started */
+.right-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+/* form, this one hard af */
+.right-section form {
+  display: grid;
+  gap: 1rem;
+  width: 350px;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(4,1fr);
+}
+
+label {
+  color: hsl(278, 68%, 11%); /*Very-dark-violet*/
+  margin-bottom: .3rem;
+  text-transform: uppercase;
+}
+
+input {
+  padding: .5rem;
+  font-size: 18px;
+  border: 1px solid hsl(279, 6%, 55%); /*Dark-grayish-violet*/
+  border-radius: 6px;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+ -webkit-appearance: none;
+  margin: 0;
+}
+
+input::placeholder {
+  font-family: inherit;
+  color: hsl(279, 6%, 55%); /*Dark-grayish-violet*/
+}
+input:focus {
+  outline-color: hsl(249, 99%, 64%);
+}
+
+/* cardholder name */
+.grid-1 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 span;
+}
+
+/* card number */
+.grid-2 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 2 span;
+}
+
+/* CVC */
+.grid-3 {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 span;
+}
+
+/* display cart infos */
+.card-information {
+  display: flex;
+  grid-column: 2 span;
+  gap: 1rem;
+}
+#card-date {
+  display: flex;
+  flex-direction: column;
+  grid-column: 1 span;
+}
+/* MM and YY section */
+#card-date .two-inp {
+  display: flex;
+}
+.two-inp div {
+  flex-direction: column;
+}
+#card-date div input {
+  width: 70px;
+  margin-inline: .5rem;
+  margin-left: 0;
+}
+#card-cvc{
+  width: 100%;
+}
+
+/* confirm button */
+form button{
+  grid-column: 2 span;
+  font-size: 18px;
+  height: 50px;
+  color: hsl(0, 0%, 100%); /*white*/
+  border-radius: 6px;
+  background: hsl(278, 68%, 11%); /*Very-dark-violet*/
+  cursor: pointer;
+}
+
+.thank{
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.thank h1 {
+  text-transform: uppercase;
+  letter-spacing: 3px;
+}
+
+.thank span {
+  font-size: 18px;
+  color: hsl(279, 6%, 55%); /*Dark-grayish-violet*/
+}
+
+.thank button{
+  color: hsl(0, 0%, 100%); /*white*/
+  width: 100%;
+  border-radius: 6px;
+  padding: 1rem;
+  font-size: 18px;
+  background-color: hsl(278, 68%, 11%); /*Very-dark-violet*/
+  cursor: pointer;
+}
+
+/* max width: 1200px, before 1st collision of form and cards */
+@media screen and (max-width:1200px) {
+  .front-card .card-container img,.front-card,.back-card img,.back-card{
+    width: 300px;
+  }
+
+  .card-logo{
+    width: 50px;
+  }
+
+  #number{
+    font-size: 1.1rem;
+  }
+
+  #cvc{
+    top: 40%;
+    right: 10%;
+  }
+}
+
+/* max width: 1000px, before 2nd collision of form and cards */
+@media screen and (max-width:1000px) {
+  .container{
+    flex-direction: column;
+  }
+
+  .front-card .card-container img,
+  .front-card,
+  .back-card img,.back-card{
+    width: 280px;
+  }
+  
+  .left-section{
+    width: 100%;
+    min-height: 30vh;
+    background-image: url('images/bg-main-mobile.png');
+  }
+
+  .cards{
+    flex-direction: column-reverse;
+    left: 60%;
+    top: 60%;
+    gap: 0;
+  }
+
+  .back-card{
+    transform: translateY(70px);
+  }
+
+  /* backcard is beneath front */
+  .front-card{
+    z-index: 2603;
+  }
+
+  .right-section{
+    margin-top: 6rem;
+  }
+}

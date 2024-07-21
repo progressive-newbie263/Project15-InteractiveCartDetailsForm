@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png"/>
+    <link rel="stylesheet" href="style.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+    
+    <title>Frontend Mentor | Interactive card details form</title>
+  </head>
+
+  <body>
+    <main>
+      <div class="container">
+        <div class="left-section">
+          <div class="cards">
+            <div class="front-card">
+              <img src="images/card-logo.svg" alt="card-logo" class="card-logo"/>
+
+              <div class="card-container">
+                <img src="images/bg-card-front.png" alt="front-card" />
+
+                <h1 id="number">0000 0000 0000 0000</h1>
+                
+                <div class="card-info">
+                  <span id="name">Jane Appleseed</span>
+
+                  <span id="date">
+                    <span id="month">00</span> / <span id="year">00</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="back-card">
+              <img src="./images/bg-card-back.png" alt="back-card" />
+              <span id="cvc">000</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="right-section">
+          <form>
+            <div class="grid-1">
+              <label for="card-name">Cardholder Name</label>
+              <input type="text" placeholder="e.g. Jane Appleseed" id="card-name" required/>
+            </div>
+
+            <div class="grid-2">
+              <label for="card-number">Card Number</label>
+
+              <input type="number" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                minlength="16" maxlength="16" placeholder="e.g. 1234 5678 9123 0000" id="card-number"required/>
+            </div>
+            
+            <div class="card-information">
+              <div id="card-date">
+                <label for="card-date">Exp. Date (MM/YY)</label>
+
+                <div class="two-inp">
+                  <div>
+                    <input type="number" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      minlength="2" maxlength="2" id="card-month" placeholder="MM" required />
+                  </div>
+
+                  <div>
+                    <input oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                      type="number" minlength="2" maxlength="2" placeholder="YY" id="card-year" required/>
+                  </div>
+                </div>
+              </div>
+
+              <div class="grid-3">
+                <label for="card-cvc">CVC</label>
+                <input type="number" oninput="if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                  maxlength="3" placeholder="e.g. 123" id="card-cvc" required />
+              </div>
+            </div>
+
+            <button id="submit-button" type="submit">
+              Confirm
+            </button>
+          </form>
+
+          <!--the message after confirming card infos-->
+          <div class="thank hidden">
+            <img src="images/icon-complete.svg" alt="Completed" />
+
+            <h1>Thank you!</h1>
+            
+            <span>We've added your card details</span>
+            
+            <button id="continue-button" type="submit">
+              Continue
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <div style="position: absolute; right: 20%; bottom: 0;">
+      <span>Task given by <a href="https://www.frontendmentor.io/home" target="_blank">Frontend Mentor</a>.</span> 
+      <span>Completed by <a href="https://github.com/progressive-newbie263">JackFrost</a></span>
+    </div>
+  </body>
+
+  <script src="https://unpkg.com/imask"></script>
+  <script src="script.js"></script>
+</html>
+
+<!--
+color given: {
+  Red: hsl(0, 100%, 66%);
+  White: hsl(0, 0%, 100%);
+  Light-grayish-violet: hsl(270, 3%, 87%);
+  Dark-grayish-violet: hsl(279, 6%, 55%);
+  Very-dark-violet: hsl(278, 68%, 11%);
+}-->
